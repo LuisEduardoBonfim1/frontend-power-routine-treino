@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Routine</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section id="tela-inicial" class="tela ativa">
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo Power Routine" class="logo-grande">
+        </div>
+        
+        <div class="botoes-container">
+            <button class="btn-verde" onclick="navegarPara('tela-login')">Login</button>
+            <button class="btn-verde" onclick="navegarPara('tela-cadastro')">Cadastre-se</button>
+        </div>
+    </section>
+
+    <section id="tela-login" class="tela">
+        <div class="header-abas">
+            <h2 class="aba-ativa">Login</h2>
+            <h2 class="aba-inativa" onclick="navegarPara('tela-cadastro')">Cadastre-se</h2>
+        </div>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label>Nome de Usuário</label>
+                <input type="text" placeholder="Digite seu usuário">
+            </div>
+
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" placeholder="Digite sua senha">
+            </div>
+            
+            <a href="#" class="link-esqueceu" onclick="navegarPara('tela-esqueceu-senha')">Esqueceu a senha?</a>
+
+            <button class="btn-verde" onclick="navegarPara('tela-bem-vindo')">Entrar</button>
+
+            <div class="divisor-ou">
+                <span></span>
+                <p>Ou</p>
+                <span></span>
+            </div>
+
+            <button class="btn-social" onclick="simularApple()">
+                🍎 Login com a Apple
+            </button>
+
+            <button class="btn-social" onclick="navegarPara('tela-google-email')">
+                <span style="font-weight: bold; color: #4285F4; margin-right: 5px;">G</span> Login com o Google
+            </button>
+        </div>
+    </section>
+
+    <section id="tela-google-email" class="tela">
+        <div class="logo-google-container">
+            <span style="font-size: 50px; font-weight: bold; color: #4285F4;">G</span>
+        </div>
+        <p class="texto-google">Com sua conta Google você pode<br>acessar o serviço da Google pelo app</p>
+        
+        <div class="input-google-container">
+            <input type="text" class="input-google" placeholder="Email ou telefone">
+        </div>
+        
+        <div style="width: 100%; display: flex; justify-content: flex-end; margin-top: 20px;">
+            <button class="btn-azul-pequeno" onclick="navegarPara('tela-google-senha')">Próximo</button>
+        </div>
+    </section>
+
+    <section id="tela-google-senha" class="tela">
+        <div class="logo-google-container">
+            <span style="font-size: 50px; font-weight: bold; color: #4285F4;">G</span>
+        </div>
+        <p class="texto-google">Com sua conta Google você pode<br>acessar o serviço da Google pelo app</p>
+        
+        <div class="input-google-container">
+            <input type="password" class="input-google" placeholder="Senha">
+        </div>
+        
+        <div style="width: 100%; display: flex; justify-content: flex-end; margin-top: 20px;">
+            <button class="btn-azul-pequeno" onclick="navegarPara('tela-google-sucesso')">Próximo</button>
+        </div>
+    </section>
+
+    <section id="tela-google-sucesso" class="tela">
+        <div class="logo-google-container">
+            <span style="font-size: 50px; font-weight: bold; color: #4285F4;">G</span>
+        </div>
+        <h2 style="margin-top: 10px; font-size: 24px;">Sucesso</h2>
+        <p class="texto-google" style="text-align: center; margin-bottom: 40px; margin-top: 10px;">Parabéns! Sua conta google foi logada com sucesso, aperte em continuar</p>
+        
+        <button class="btn-azul-grande" onclick="navegarPara('tela-bem-vindo')">Continuar</button>
+    </section>
+
+    <section id="tela-cadastro" class="tela">
+        <div class="header-abas">
+            <h2 class="aba-inativa" onclick="navegarPara('tela-login')">Login</h2>
+            <h2 class="aba-ativa">Cadastre - se</h2>
+        </div>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label>Seu e-mail</label>
+                <input type="email" placeholder="Digite seu e-mail">
+            </div>
+            <div class="input-group">
+                <label>Nome de Usuário</label>
+                <input type="text" placeholder="Digite seu usuário">
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" placeholder="Digite sua senha">
+            </div>
+            <div class="input-group">
+                <label>Confirmar senha</label>
+                <input type="password" placeholder="Digite novamente sua senha">
+            </div>
+
+            <button class="btn-verde" onclick="navegarPara('tela-login')">Entrar</button>
+        </div>
+    </section>
+
+    <section id="tela-esqueceu-senha" class="tela">
+        <h2 class="titulo-onboarding" style="text-align: left; width: 100%;">Esqueceu a<br>senha?</h2>
+        <p style="color: #aaa; font-size: 14px; margin-bottom: 30px;">Insira o seu endereço de e-mail ou número de telefone que utiliza em sua conta para receber um código de redefinição de senha</p>
+        
+        <div class="input-group">
+            <label>Seu e-mail</label>
+            <input type="email" placeholder="teste123@gmail.com">
+        </div>
+
+        <button class="btn-verde" onclick="navegarPara('tela-verificar-codigo')">Continuar</button>
+        
+        <div class="footer-voltar">
+            <button class="btn-circular" onclick="navegarPara('tela-login')">←</button>
+        </div>
+    </section>
+
+    <section id="tela-verificar-codigo" class="tela">
+        <h2 class="titulo-onboarding" style="text-align: left; width: 100%;">Verifique<br>seu e-mail</h2>
+        <p style="color: #aaa; font-size: 14px; margin-bottom: 30px; width: 100%;">Enviamos um código com 5 dígitos para<br>62999999999</p>
+        
+        <div class="codigo-container" style="display: flex; gap: 10px; margin-bottom: 30px; width: 100%; justify-content: space-between;">
+            <input type="text" maxlength="1" class="input-codigo" placeholder="1">
+            <input type="text" maxlength="1" class="input-codigo" placeholder="1">
+            <input type="text" maxlength="1" class="input-codigo" placeholder="4">
+            <input type="text" maxlength="1" class="input-codigo" placeholder="5">
+            <input type="text" maxlength="1" class="input-codigo" placeholder="6">
+        </div>
+
+        <button class="btn-verde" onclick="navegarPara('tela-nova-senha')">Verificar código</button>
+
+        <p style="font-size: 14px; margin-top: 15px;">Não recebeu ainda? <span style="color: #00FF00; cursor: pointer;">Reenviar mensagem</span></p>
+
+        <div style="width: 100%; margin-top: auto; display: flex; justify-content: flex-start;">
+            <button class="btn-circular" onclick="navegarPara('tela-esqueceu-senha')">←</button>
+        </div>
+    </section>
+
+    <section id="tela-nova-senha" class="tela">
+        <h2 class="titulo-onboarding" style="text-align: left; width: 100%; margin-bottom: 10px;">Digite a nova<br>senha</h2>
+        <p style="color: #aaa; font-size: 14px; margin-bottom: 40px; width: 100%;">Crie uma nova senha</p>
+
+        <div class="form-container" style="width: 100%;">
+            <div class="input-group">
+                <label>Nova senha</label>
+                <input type="password" placeholder="Digite a nova senha">
+                <span style="position: absolute; right: 15px; top: 18px; color: #aaa; cursor: pointer; font-size: 18px;">👁</span>
+            </div>
+            
+            <div class="input-group">
+                <label>Confirmar nova senha</label>
+                <input type="password" placeholder="Digite novamente sua nova senha">
+                <span style="position: absolute; right: 15px; top: 18px; color: #aaa; cursor: pointer; font-size: 18px;">👁</span>
+            </div>
+
+            <button class="btn-verde" style="margin-top: 20px;" onclick="navegarPara('tela-senha-sucesso')">Confirmar</button>
+        </div>
+    </section>
+
+    <section id="tela-senha-sucesso" class="tela">
+        <h2 class="titulo-onboarding" style="text-align: left; width: 100%; margin-top: 100px; margin-bottom: auto;">Senha<br>redefinida com<br>sucesso!</h2>
+
+        <button class="btn-verde" onclick="navegarPara('tela-login')">Continuar</button>
+    </section>
+
+    <section id="tela-bem-vindo" class="tela">
+        <div style="width: 100%; margin-top: 60px;">
+            <h1 style="font-size: 42px; text-align: left; margin-bottom: 30px; line-height: 1.1;">Seja<br>bem-vindo</h1>
+            <p style="color: #00a8ff; font-size: 16px; text-align: left; line-height: 1.4;">
+                Para que possamos trabalhar juntos, preciso conhecer um pouco mais sobre você. Isso vai me ajudar a te proporcionar uma experiência totalmente individual.
+            </p>
+        </div>
+        
+        <div style="width: 100%; margin-top: auto; display: flex; justify-content: flex-end;">
+            <button class="btn-circular" onclick="navegarPara('tela-dados-pessoais')">→</button>
+        </div>
+    </section>
+
+    <section id="tela-dados-pessoais" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-bem-vindo')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding" style="margin-bottom: 20px; font-size: 24px;">Como podemos te chamar?</h2>
+            <div class="input-peso-container" style="padding: 10px; width: 100%; border-radius: 15px; margin-bottom: 40px;">
+                 <input type="text" placeholder="Seu nome" style="background: transparent; border: none; color: #fff; font-size: 20px; font-weight: bold; text-align: center; outline: none; width: 100%;"> 
+            </div>
+
+            <h2 class="titulo-onboarding" style="margin-bottom: 20px; font-size: 24px;">Qual o seu sexo biológico?</h2>
+            <div class="opcoes-container" style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
+                <button class="btn-opcao selecionado" onclick="selecionarOpcao(this)">Masculino</button>
+                <button class="btn-opcao" onclick="selecionarOpcao(this)">Feminino</button>
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-peso')">→</button>
+    </section>
+
+    <section id="tela-peso" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-dados-pessoais')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding">Coloque seu peso</h2>
+            <div class="input-peso-container">
+                 <input type="number" placeholder="70" class="input-onboarding"> 
+                 <span class="unidade">Kg</span>
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-altura')">→</button>
+    </section>
+
+    <section id="tela-altura" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-peso')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding">Coloque sua altura</h2>
+            <div class="input-peso-container">
+                 <input type="number" placeholder="170" class="input-onboarding"> 
+                 <span class="unidade">cm</span>
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-nascimento')">→</button>
+    </section>
+
+    <section id="tela-nascimento" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-altura')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding">Coloque seu nascimento</h2>
+            <div class="input-peso-container" style="padding: 15px; width: 100%;">
+                 <input type="text" placeholder="DD/MM/AAAA" maxlength="10" oninput="formatarData(this)" style="background: transparent; border: none; color: #fff; font-size: 24px; font-weight: bold; text-align: center; outline: none; width: 100%; letter-spacing: 2px;"> 
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-objetivo')">→</button>
+    </section>
+    
+    <section id="tela-objetivo" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-nascimento')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding" style="margin-bottom: 30px;">Objetivo</h2>
+            <div class="opcoes-container" style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
+                <button class="btn-opcao selecionado" onclick="selecionarOpcao(this)">Emagrecimento</button>
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-frequencia')" style="margin-top: auto;">→</button>
+    </section>
+
+    <section id="tela-frequencia" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-objetivo')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding" style="margin-bottom: 30px; font-size: 24px;">Quantos dias por semana você pretende treinar?</h2>
+            
+            <div class="opcoes-container" style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
+                <button class="btn-opcao" onclick="selecionarOpcao(this)">1 a 2 dias</button>
+                <button class="btn-opcao selecionado" onclick="selecionarOpcao(this)">3 a 4 dias</button>
+                <button class="btn-opcao" onclick="selecionarOpcao(this)">5 ou mais dias</button>
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-saude')" style="margin-top: auto;">→</button>
+    </section>
+
+    <section id="tela-saude" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-frequencia')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <div class="conteudo-central">
+            <h2 class="titulo-onboarding" style="margin-bottom: 30px;">Problemas de saúde</h2>
+            <div class="opcoes-container" style="width: 100%; display: flex; flex-direction: column; gap: 15px;">
+                <button class="btn-opcao selecionado" onclick="selecionarOpcao(this)">Nenhum</button>
+            </div>
+        </div>
+        
+        <button class="btn-avancar" onclick="navegarPara('tela-treino-dia')" style="margin-top: auto;">→</button>
+    </section>
+
+    <section id="tela-treino-dia" class="tela">
+        <div class="header-voltar">
+            <button class="btn-voltar" onclick="navegarPara('tela-saude')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <h2 class="titulo-onboarding" style="text-align: left; margin-bottom: 5px; font-size: 26px;">Treinos do Dia</h2>
+        
+        <div class="select-group">
+            <label>Nível</label>
+            <select class="select-dark">
+                <option>Iniciante</option>
+                <option>Intermediário</option>
+                <option>Avançado</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Grupo muscular de ontem</label>
+            <select class="select-dark">
+                <option>Peito</option>
+                <option>Pernas</option>
+                <option>Costas</option>
+                <option>Ombros</option>
+                <option>Mobilidade/Alongamento</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <label>Grupo desejado hoje</label>
+            <select class="select-dark">
+                <option>Pernas</option>
+                <option>Peito</option>
+                <option>Costas</option>
+                <option>Ombros</option>
+                <option>Mobilidade/Alongamento</option>
+            </select>
+        </div>
+
+        <div style="text-align: left; width: 100%; margin-top: 10px;">
+            <p style="font-size: 12px; margin-bottom: 10px;"><b>Intensidade:</b> baixa • <b>Duração:</b> 30 min • <b>Grupo recomendado:</b> Mobilidade/Alongamento (variação automática — RN-019)</p>
+            
+            <p style="font-weight: bold; font-size: 14px; margin-bottom: 10px;">Exercícios sugeridos:</p>
+            <ul class="lista-exercicios">
+                <li>Caminhada rápida (10-15 min)</li>
+                <li>Agachamento livre 3x12</li>
+                <li>Flexão inclinada 3x10</li>
+                <li>Prancha 3x20s</li>
+            </ul>
+        </div>
+
+
+        <p style="color: #888; font-size: 10px; text-align: left; width: 100%; margin-bottom: 20px;">Atenção: ajuste cargas e volume conforme evolução e histórico de lesões.</p>
+
+        <button class="btn-verde" style="margin-top: auto;" onclick="navegarPara('tela-painel')">Acompanhamento →</button>
+    </section>
+
+    <section id="tela-painel" class="tela">
+        <div class="header-voltar">
+            <button class="btn-circular" onclick="navegarPara('tela-treino-dia')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <h2 class="titulo-onboarding" style="text-align: left; margin-bottom: 20px;">Evolução de<br>Treinos</h2>
+        
+        <div class="dashboard-container">
+            <div class="card-metrica">
+                <span class="metrica-titulo">Frequência Semanal</span>
+                <span class="metrica-valor">4 dias</span>
+            </div>
+            <div class="card-metrica">
+                <span class="metrica-titulo">Volume Total</span>
+                <span class="metrica-valor">12 kg</span>
+            </div>
+            
+            <div class="grafico-placeholder">
+                <p>Evolução de Cargas</p>
+                <div class="barras" id="grafico-barras">
+                    <div class="barra" style="height: 40%;"></div>
+                    <div class="barra" style="height: 60%;"></div>
+                    <div class="barra" style="height: 50%;"></div>
+                    <div class="barra" style="height: 80%;"></div>
+                    <div class="barra" style="height: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-verde" style="margin-top: auto;" onclick="navegarPara('tela-registro')">+ Registrar Treino</button>
+    </section>
+
+    <section id="tela-registro" class="tela">
+        <div class="header-voltar">
+            <button class="btn-circular" onclick="navegarPara('tela-painel')">←</button>
+            <div style="margin-left: auto;">
+                <img src="img/logo.png" alt="Logo" style="width: 40px;">
+            </div>
+        </div>
+        
+        <h2 class="titulo-onboarding" style="text-align: left; margin-bottom: 20px;">Novo<br>Registro</h2>
+        
+        <div class="form-container" style="width: 100%;">
+            <div class="input-group">
+                <label>Exercício</label>
+                <input type="text" placeholder="Ex: Supino Reto">
+            </div>
+            
+            <div style="display: flex; gap: 10px;">
+                <div class="input-group">
+                    <label>Séries</label>
+                    <input type="number" placeholder="4">
+                </div>
+                <div class="input-group">
+                    <label>Repetições</label>
+                    <input type="number" placeholder="10">
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Carga Utilizada (Kg)</label>
+                <input type="number" placeholder="60">
+            </div>
+        </div>
+
+        <button class="btn-verde" style="margin-top: auto;" onclick="salvarTreino()">Salvar Exercício</button>
+    </section>
+
+    <script>
+        function navegarPara(idTelaDestino) {
+            const telas = document.querySelectorAll('.tela');
+            telas.forEach(tela => tela.classList.remove('ativa'));
+            document.getElementById(idTelaDestino).classList.add('ativa');
+        }
+
+        function selecionarOpcao(botaoClicado) {
+            const container = botaoClicado.parentElement;
+            const botoes = container.querySelectorAll('.btn-opcao');
+            botoes.forEach(btn => btn.classList.remove('selecionado'));
+            botaoClicado.classList.add('selecionado');
+        }
+
+        function simularApple() {
+            alert("Simulação de Login Apple: Validando Face ID... Rosto reconhecido com sucesso!");
+            navegarPara('tela-bem-vindo');
+        }
+
+        function formatarData(input) {
+            let valor = input.value.replace(/\D/g, '');
+            if (valor.length > 2) {
+                valor = valor.replace(/^(\d{2})(\d)/, '$1/$2');
+            }
+            if (valor.length > 5) {
+                valor = valor.replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+            }
+            input.value = valor;
+        }
+
+
+        function salvarTreino() {
+            const inputs = document.querySelectorAll('#tela-registro input');
+            let camposValidos = true;
+
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                camposValidos = false;
+                }
+            });
+
+            if (!camposValidos) {
+                alert("Erro: Preencha todos os campos obrigatórios.");
+            return;
+            }
+
+            const exercicio = inputs[0].value;
+            const series = parseInt(inputs[1].value);
+            const repeticoes = parseInt(inputs[2].value);
+            const carga = parseFloat(inputs[3].value);
+
+            const volumeReal = series * repeticoes * carga;
+
+            const volume = carga;
+
+            let treinos = JSON.parse(localStorage.getItem("treinos")) || [];
+
+            treinos.push({
+                exercicio,
+                series,
+                repeticoes,
+                carga,
+                volume,
+                volumeReal,
+                data: new Date()
+            });
+
+        localStorage.setItem("treinos", JSON.stringify(treinos));
+
+        alert(`Sucesso! Carga registrada: ${carga} kg`);
+
+        inputs.forEach(input => input.value = '');
+
+        atualizarPainel();
+
+        navegarPara('tela-painel');
+    }
+
+    function atualizarPainel() {
+        const treinos = JSON.parse(localStorage.getItem("treinos")) || [];
+
+        if (treinos.length === 0) return;
+
+        const frequencia = treinos.length;
+
+        const volumeTotal = treinos.reduce((acc, t) => acc + t.carga, 0);
+
+        let classificacao = "Estável";
+        if (treinos.length >= 2) {
+            const ultimo = treinos[treinos.length - 1].volumeReal;
+            const anterior = treinos[treinos.length - 2].volumeReal;
+
+            if (ultimo > anterior) classificacao = "Evolução Positiva";
+            else if (ultimo < anterior) classificacao = "Abaixo do Esperado";
+        }
+
+        document.querySelectorAll('.metrica-valor')[0].innerText = frequencia + " dias";
+        document.querySelectorAll('.metrica-valor')[1].innerText = volumeTotal + " kg";
+
+        let classificacaoEl = document.getElementById("classificacao");
+
+        if (!classificacaoEl) {
+            classificacaoEl = document.createElement("p");
+            classificacaoEl.id = "classificacao";
+            classificacaoEl.style.marginTop = "10px";
+            document.querySelector('.dashboard-container').appendChild(classificacaoEl);
+        }
+
+        classificacaoEl.innerText = "Desempenho: " + classificacao;
+
+        atualizarGrafico();
+    }
+
+    window.onload = function () {
+    atualizarPainel();
+    };
+
+    function atualizarGrafico() {
+        const treinos = JSON.parse(localStorage.getItem("treinos")) || [];
+        const container = document.getElementById("grafico-barras");
+
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        if (treinos.length === 0) return;
+
+        const ultimosTreinos = treinos.slice(-5);
+
+        const maxVolume = Math.max(...ultimosTreinos.map(t => t.volumeReal));
+
+        ultimosTreinos.forEach(t => {
+            const barra = document.createElement("div");
+            barra.classList.add("barra");
+
+            const altura = (t.volumeReal / maxVolume) * 100;
+
+            barra.style.height = altura + "%";
+
+            container.appendChild(barra);
+        });
+    }
+
+    </script>
+</body>
+</html>
